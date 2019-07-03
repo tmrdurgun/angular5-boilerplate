@@ -1,3 +1,6 @@
-<p>
-  todo works!
-</p>
+<div *ngIf="todos">
+  <h4>TODO List</h4>
+  <ul>
+    <li *ngFor="let item of todos">{{item.title}}</li>
+  </ul>
+</div>

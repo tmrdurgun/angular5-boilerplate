@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-todo',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  constructor() { }
+  public todos: any;
+  constructor(private httpService: HttpService) { }
 
-  ngOnInit() {
+  public async ngOnInit() {
+    await this.getTodoList();
+  }
+
+  public async getTodoList(): Promise<any> {
+    return this.httpService.get('/todos').subscribe(
+      res => {
+        this.todos = res;
+      }
+    );
   }
 
 }
