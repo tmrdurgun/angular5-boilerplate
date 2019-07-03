@@ -9,3 +9,7 @@ Eslint,
 HttpService,
 Bootstrap
 
+To Get started:
+
+1.) npm i
+2.) ng serve
